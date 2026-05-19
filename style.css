@@ -138,13 +138,20 @@ footer{
     text-align:center;
     padding:20px;
     background:#000;
-}/* ===== MOBILE RESPONSIVE FIX ===== */
+}/* ===== PERFECT MOBILE FIX ===== */
+@media (max-width:768px){
 
-@media (max-width: 768px){
+    body{
+        text-align:center;
+    }
 
     h1{
-        font-size:32px;
-        text-align:center;
+        font-size:30px;
+    }
+
+    p{
+        font-size:15px;
+        padding:0 10px;
     }
 
     .hero-buttons{
@@ -154,8 +161,8 @@ footer{
     }
 
     .btn, .btn2{
-        width:80%;
-        text-align:center;
+        width:85%;
+        margin:8px 0;
     }
 
     .cards{
@@ -164,14 +171,20 @@ footer{
     }
 
     .card{
-        width:90%;
+        width:95%;
     }
 
-    .logo-img{
-        width:160px;
+    .services h2{
+        font-size:28px;
     }
 
-    header{
-        padding:40px 10px;
+    .waitlist input{
+        width:80%;
+        margin-bottom:10px;
+    }
+
+    .waitlist button{
+        width:80%;
+        margin-left:0;
     }
 }

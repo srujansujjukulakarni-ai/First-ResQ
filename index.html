@@ -1,61 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>First ResQ</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RESQ</title>
+
+<style>
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+}
+
+/* FORM SCREEN */
+#formPage{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:#ffffff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+}
+
+button{
+  padding:15px 30px;
+  font-size:18px;
+  background:#007bff;
+  color:white;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+/* MAIN WEBSITE (HIDDEN FIRST) */
+#mainWebsite{
+  display:none;
+  padding:40px;
+  text-align:center;
+}
+</style>
 </head>
 
 <body>
 
-<header>
-    <img src="logo.png" class="logo-img">
-    <h1>FIRST RESQ</h1>
-    <p>EVERY SECOND MATTERS</p>
+<!-- FORM FIRST PAGE -->
+ <div id="formPage" class="form-page">
 
-    <div class="hero-buttons">
-        <a href="tel:108" class="btn">🚑 Emergency Call</a>
-        <a href="#waitlist" class="btn2">📲 Download App</a>
-    </div>
-</header>
+  <h1>Before entering website</h1>
+  <p>Please fill the form first</p>
 
-<!-- SERVICES -->
-<section class="services">
-    <h2>Find Nearby Emergency Help Instantly</h2>
-    <p class="sub">Connecting you to hospitals, ambulances & blood banks</p>
+  <a href="https://forms.gle/jy6m9aLJ6S4oJYCK8" target="_blank" class="form-btn">
+    Fill Form
+  </a>
 
-    <div class="cards">
-        <div class="card">
-            <h3>🏥 Hospitals</h3>
-            <p>Find nearby hospitals with contact numbers instantly.</p>
-        </div>
+  <br><br>
 
-        <div class="card">
-            <h3>🚑 Ambulance</h3>
-            <p>Call emergency ambulance services in one tap.</p>
-        </div>
+  <button class="enter-btn" onclick="enterWebsite()">
+    I Filled The Form → Enter Website
+  </button>
 
-        <div class="card">
-            <h3>🩸 Blood Banks</h3>
-            <p>Locate blood banks and urgent donors near you.</p>
-        </div>
-    </div>
-</section>
+</div>
 
-<!-- WAITLIST -->
-<section id="waitlist" class="waitlist">
-    <h2>Be First To Get The App</h2>
-    <p>Join the First ResQ early access list</p>
+<!-- YOUR WEBSITE CONTENT -->
+<div id="mainWebsite">
+  <h1>🎉 Welcome to RESQ Website 🎉</h1>
+  <p>You entered after filling the form.</p>
+</div>
 
-    <!-- GOOGLE FORM CONNECTED HERE -->
-    <form action="https://forms.gle/jy6m9aLJ6S4oJYCK8" target="_blank">
-        <input type="email" placeholder="Enter your email" required>
-        <button type="submit">Join Waitlist</button>
-    </form>
-</section>
+<script>
+function openForm(){
+  window.open("https://forms.gle/jy6m9aLJ6S4oJYCK8","_blank");
 
-<footer>
-    <p>© 2026 First ResQ</p>
-</footer>
+  setTimeout(() => {
+    document.getElementById("formPage").style.display="none";
+    document.getElementById("mainWebsite").style.display="block";
+  }, 5000);
+}
+</script>
 
 </body>
 </html>

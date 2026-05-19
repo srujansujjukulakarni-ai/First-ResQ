@@ -1,3 +1,4 @@
-function sendAlert(){
-    alert("🚨 Emergency Alert Sent!\nHelp is on the way.");
+function enterWebsite() {
+  document.getElementById("formPage").style.display = "none";
+  document.getElementById("mainWebsite").style.display = "block";
 }

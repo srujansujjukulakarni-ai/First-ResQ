@@ -1,6 +1,10 @@
-/* ================================
-   RESET
-================================ */
+/* ==================================================
+   FIRST RESQ
+   MAIN WEBSITE STYLES
+   ================================================== */
+
+
+/* ================= RESET ================= */
 
 * {
     margin: 0;
@@ -15,23 +19,27 @@ html {
 body {
     font-family: Arial, Helvetica, sans-serif;
     background: #ffffff;
-    color: #222;
+    color: #222222;
     line-height: 1.6;
 }
 
 
-/* ================================
-   HEADER
-================================ */
+/* ================= HEADER ================= */
 
 .header {
     width: 100%;
-    padding: 18px 7%;
+    min-height: 72px;
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+
+    padding: 12px 7%;
+
     background: #ffffff;
+
     border-bottom: 1px solid #eeeeee;
+
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -41,7 +49,8 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 24px;
+
+    font-size: 22px;
     font-weight: 700;
 }
 
@@ -51,163 +60,195 @@ body {
     object-fit: contain;
 }
 
-nav {
+.header nav {
     display: flex;
-    gap: 30px;
+    gap: 25px;
 }
 
-nav a {
-    color: #222;
+.header nav a {
     text-decoration: none;
+    color: #333333;
     font-weight: 600;
 }
 
-nav a:hover {
-    color: #e53935;
+.header nav a:hover {
+    color: #ff3b3b;
 }
 
 
-/* ================================
-   HERO
-================================ */
+/* ================= HERO ================= */
 
 .hero {
     min-height: 650px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     text-align: center;
+
     padding: 80px 20px;
-    background: linear-gradient(
-        180deg,
-        #ffffff,
-        #f7f7f7
-    );
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #fafafa 100%
+        );
 }
 
 .hero-content {
+    width: 100%;
     max-width: 900px;
 }
 
-.tagline {
-    color: #e53935;
+.hero-label {
+    color: #ff3b3b;
+    font-size: 14px;
     font-weight: 700;
+    letter-spacing: 1.5px;
+
     margin-bottom: 18px;
 }
 
 .hero h1 {
-    font-size: clamp(40px, 6vw, 72px);
+    font-size: clamp(38px, 6vw, 68px);
     line-height: 1.1;
+
     margin-bottom: 25px;
+
+    color: #222222;
 }
 
 .hero-text {
-    max-width: 700px;
-    margin: auto;
     font-size: 20px;
-    color: #666;
+    color: #777777;
+
+    margin-bottom: 35px;
 }
 
+
+/* ================= HERO BUTTONS ================= */
+
 .hero-buttons {
-    margin-top: 40px;
     display: flex;
     justify-content: center;
+    align-items: center;
+
     gap: 15px;
+
     flex-wrap: wrap;
 }
 
-.emergency-button,
-.join-button {
-    display: inline-block;
+.emergency-btn,
+.app-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 180px;
+
     padding: 15px 25px;
+
     border-radius: 10px;
+
     text-decoration: none;
+
+    font-size: 16px;
     font-weight: 700;
-    transition: 0.2s;
+
+    transition: 0.2s ease;
 }
 
-.emergency-button {
-    background: #e53935;
-    color: white;
+.emergency-btn {
+    background: #ff3b3b;
+    color: #ffffff;
+
+    box-shadow: 0 8px 20px rgba(255, 59, 59, 0.2);
 }
 
-.join-button {
-    background: #111;
-    color: white;
+.app-btn {
+    background: #111111;
+    color: #ffffff;
 }
 
-.emergency-button:hover,
-.join-button:hover {
+.emergency-btn:hover,
+.app-btn:hover {
     transform: translateY(-2px);
     opacity: 0.9;
 }
 
 
-/* ================================
-   SERVICES
-================================ */
+/* ================= SERVICES ================= */
 
-.services {
-    padding: 100px 7%;
+.services-section {
+    padding: 90px 7%;
     background: #ffffff;
 }
 
 .section-heading {
     text-align: center;
-    max-width: 750px;
-    margin: 0 auto 50px;
-}
-
-.small-title {
-    color: #e53935;
-    font-weight: 700;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
 }
 
 .section-heading h2 {
-    font-size: clamp(30px, 4vw, 48px);
-    margin-bottom: 15px;
+    font-size: clamp(30px, 4vw, 46px);
+    margin-bottom: 12px;
 }
 
-.section-heading p:last-child {
-    color: #777;
+.section-heading p {
+    color: #777777;
+    font-size: 18px;
 }
 
+
+/* ================= CARDS ================= */
 
 .cards {
-    max-width: 1100px;
-    margin: auto;
+    max-width: 1200px;
+
+    margin: 0 auto;
 
     display: grid;
+
     grid-template-columns:
         repeat(3, 1fr);
 
-    gap: 25px;
+    gap: 30px;
 }
 
 .card {
-    padding: 40px 30px;
-    min-height: 320px;
-
     background: #f8f8f8;
 
     border-radius: 18px;
 
+    padding: 45px 30px;
+
     text-align: center;
 
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.06);
+    min-height: 310px;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.07);
+
+    transition: 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.1);
 }
 
 .card-icon {
-    font-size: 45px;
-    margin-bottom: 15px;
+    font-size: 38px;
+    margin-bottom: 12px;
 }
 
 .card h3 {
@@ -216,269 +257,316 @@ nav a:hover {
 }
 
 .card p {
-    color: #777;
-    margin-bottom: 25px;
-    max-width: 280px;
+    color: #777777;
+    font-size: 16px;
+
+    max-width: 300px;
 }
 
-.card button,
-.card-button {
+
+/* ================= GPS BUTTON ================= */
+
+.location-btn {
+    margin-top: 20px;
+
+    padding: 13px 20px;
+
     border: none;
-    background: #111;
-    color: white;
-
-    padding: 12px 18px;
-
-    border-radius: 8px;
-
-    font-size: 15px;
-    font-weight: 600;
-
-    text-decoration: none;
-
-    cursor: pointer;
-}
-
-.card button:hover,
-.card-button:hover {
-    background: #e53935;
-}
-
-
-/* ================================
-   EMERGENCY ALERT
-================================ */
-
-.alert-section {
-    padding: 80px 7%;
-    background: #f5f5f5;
-}
-
-.alert-box {
-    max-width: 800px;
-    margin: auto;
-
-    padding: 50px 30px;
-
-    text-align: center;
-
-    background: white;
-
-    border-radius: 20px;
-}
-
-.alert-box h2 {
-    font-size: 32px;
-    margin-bottom: 15px;
-}
-
-.alert-box p {
-    color: #777;
-    margin-bottom: 25px;
-}
-
-.alert-button {
-    border: none;
-
-    background: #e53935;
-    color: white;
-
-    padding: 15px 25px;
 
     border-radius: 10px;
 
-    font-size: 16px;
+    background: #ff3b3b;
+
+    color: #ffffff;
+
+    font-size: 15px;
     font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.location-btn:hover {
+    background: #e62f2f;
+    transform: translateY(-2px);
+}
+
+.location-btn:active {
+    transform: translateY(0);
+}
+
+.location-status {
+    min-height: 25px;
+
+    margin-top: 12px !important;
+
+    font-size: 14px !important;
+
+    color: #333333 !important;
+}
+
+
+/* ================= CARD BUTTON ================= */
+
+.card-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 20px;
+
+    padding: 12px 20px;
+
+    border-radius: 10px;
+
+    background: #111111;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    border: none;
 
     cursor: pointer;
 }
 
-.alert-button:hover {
-    background: #c62828;
+.card-button:hover {
+    opacity: 0.85;
+}
+
+.disabled-button {
+    background: #bbbbbb;
+    cursor: not-allowed;
 }
 
 
-/* ================================
-   JOIN
-================================ */
+/* ================= JOIN SECTION ================= */
 
 .join-section {
-    background: #111;
-    color: white;
+    background: #111111;
 
-    padding: 100px 20px;
+    color: #ffffff;
+
+    padding: 90px 20px;
 
     text-align: center;
 }
 
 .join-content {
-    max-width: 700px;
-    margin: auto;
+    max-width: 850px;
+    margin: 0 auto;
 }
 
-.join-content h2 {
-    font-size: clamp(32px, 5vw, 48px);
-    margin-bottom: 15px;
+.join-section h2 {
+    font-size: clamp(30px, 5vw, 46px);
+
+    margin-bottom: 12px;
 }
 
-.join-content p {
-    color: #cccccc;
-    margin-bottom: 30px;
+.join-section p {
+    color: #bbbbbb;
+
+    font-size: 18px;
+
+    margin-bottom: 25px;
 }
 
-.form-button {
-    display: inline-block;
 
-    background: #e53935;
-    color: white;
+/* ================= FORM ================= */
 
-    padding: 15px 30px;
+.join-section form {
+    display: flex;
 
-    border-radius: 10px;
+    justify-content: center;
 
-    text-decoration: none;
+    gap: 12px;
+
+    width: 100%;
+
+    max-width: 650px;
+
+    margin: 0 auto;
+}
+
+.join-section input {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 16px 20px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+.join-section form button {
+    padding: 15px 25px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #ff3b3b;
+
+    color: #ffffff;
+
+    font-size: 16px;
 
     font-weight: 700;
+
+    cursor: pointer;
+
+    white-space: nowrap;
 }
 
-.form-button:hover {
-    background: #c62828;
+.join-section form button:hover {
+    background: #e62f2f;
 }
 
 
-/* ================================
-   FOOTER
-================================ */
+/* ================= FOOTER ================= */
 
 footer {
-    background: #000;
-    color: white;
+    background: #000000;
+
+    color: #ffffff;
 
     text-align: center;
 
-    padding: 45px 20px;
+    padding: 55px 20px;
 }
 
-footer h3 {
-    margin-bottom: 20px;
+.copyright {
+    color: #bbbbbb;
+
+    font-size: 20px;
+
+    margin-bottom: 18px;
 }
 
 .disclaimer {
-    max-width: 900px;
-    margin: auto;
+    max-width: 850px;
 
-    color: #888;
+    margin: 0 auto;
+
+    color: #777777;
 
     font-size: 14px;
+
+    line-height: 1.7;
 }
 
 
-/* ================================
+/* ==================================================
    MOBILE
-================================ */
+   ================================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
 
     .header {
-        padding: 15px 20px;
+        padding: 12px 20px;
     }
 
-    .logo-area {
-        font-size: 20px;
-    }
-
-    .logo {
-        width: 35px;
-        height: 35px;
-    }
-
-    nav {
+    .header nav {
         gap: 12px;
     }
 
-    nav a {
-        font-size: 13px;
+    .header nav a {
+        font-size: 14px;
     }
 
-
     .hero {
-        min-height: 600px;
-        padding: 60px 20px;
+        min-height: 560px;
+
+        padding: 70px 20px;
     }
 
     .hero h1 {
-        font-size: 40px;
+        font-size: 42px;
     }
 
     .hero-text {
         font-size: 17px;
     }
 
-    .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
+    .cards {
+        grid-template-columns: 1fr;
+
+        max-width: 500px;
     }
 
-    .emergency-button,
-    .join-button {
-        width: 100%;
-        text-align: center;
-    }
-
-
-    .services {
+    .services-section {
         padding: 70px 20px;
     }
 
-    .cards {
-        grid-template-columns: 1fr;
-    }
-
-    .card {
-        min-height: 280px;
-    }
-
-
-    .alert-section {
-        padding: 60px 20px;
-    }
-
-    .alert-box {
-        padding: 40px 20px;
-    }
-
-
     .join-section {
-        padding: 75px 20px;
+        padding: 70px 20px;
     }
 
+    .join-section form {
+        flex-direction: column;
+    }
 
-    footer {
-        padding: 40px 20px;
+    .join-section input,
+    .join-section form button {
+        width: 100%;
     }
 
 }
 
 
-/* SMALL PHONES */
+/* ================= SMALL PHONES ================= */
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
 
-    nav {
-        gap: 8px;
+    .logo-area {
+        font-size: 19px;
     }
 
-    nav a {
-        font-size: 11px;
+    .logo {
+        width: 36px;
+        height: 36px;
+    }
+
+    .header nav {
+        display: none;
+    }
+
+    .hero {
+        min-height: 520px;
     }
 
     .hero h1 {
         font-size: 34px;
     }
 
-    .hero {
-        padding-left: 15px;
-        padding-right: 15px;
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .emergency-btn,
+    .app-btn {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .card {
+        padding: 35px 20px;
+    }
+
+    .location-btn {
+        width: 100%;
+        max-width: 280px;
     }
 
 }

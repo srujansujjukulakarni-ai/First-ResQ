@@ -1,44 +1,123 @@
-function sendAlert(){
-    alert("🚨 Emergency Alert Sent!\nHelp is on the way.");
+/* =================================
+   FIRST RESQ JAVASCRIPT
+================================= */
+
+
+/* EMERGENCY ALERT */
+
+function sendAlert() {
+
+    alert(
+        "🚨 Emergency Alert Sent!\n\n" +
+        "Please contact the appropriate official emergency service immediately."
+    );
+
 }
 
 
-// FIND NEARBY HOSPITALS - GPS
-const locationBtn = document.getElementById("locationBtn");
-const locationStatus = document.getElementById("locationStatus");
+/* FIND NEARBY HOSPITALS */
 
-if (locationBtn) {
-    locationBtn.addEventListener("click", () => {
+function findHospitals() {
 
-        if (!navigator.geolocation) {
-            locationStatus.textContent =
-                "GPS is not supported by this browser.";
-            return;
-        }
-
-        locationStatus.textContent =
-            "📍 Getting your location...";
+    if ("geolocation" in navigator) {
 
         navigator.geolocation.getCurrentPosition(
-            (position) => {
+
+            function(position) {
 
                 const latitude = position.coords.latitude;
                 const longitude = position.coords.longitude;
 
-                locationStatus.textContent =
-                    `Location detected: ${latitude.toFixed(5)}, ${longitude.toFixed(5)}`;
+                const mapURL =
+                    "https://www.google.com/maps/search/hospitals/" +
+                    "@" +
+                    latitude +
+                    "," +
+                    longitude +
+                    ",14z";
+
+                window.open(mapURL, "_blank");
+
             },
 
-            (error) => {
+            function() {
 
-                if (error.code === 1) {
-                    locationStatus.textContent =
-                        "Location permission was denied.";
-                } else {
-                    locationStatus.textContent =
-                        "Unable to get your location. Please try again.";
-                }
+                window.open(
+                    "https://www.google.com/maps/search/hospitals+near+me",
+                    "_blank"
+                );
+
             }
+
         );
-    });
+
+    } else {
+
+        window.open(
+            "https://www.google.com/maps/search/hospitals+near+me",
+            "_blank"
+        );
+
+    }
+
 }
+
+
+/* FIND BLOOD BANKS */
+
+function findBloodBanks() {
+
+    if ("geolocation" in navigator) {
+
+        navigator.geolocation.getCurrentPosition(
+
+            function(position) {
+
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+
+                const mapURL =
+                    "https://www.google.com/maps/search/blood+banks/" +
+                    "@" +
+                    latitude +
+                    "," +
+                    longitude +
+                    ",14z";
+
+                window.open(mapURL, "_blank");
+
+            },
+
+            function() {
+
+                window.open(
+                    "https://www.google.com/maps/search/blood+banks+near+me",
+                    "_blank"
+                );
+
+            }
+
+        );
+
+    } else {
+
+        window.open(
+            "https://www.google.com/maps/search/blood+banks+near+me",
+            "_blank"
+        );
+
+    }
+
+}
+
+
+/* PAGE LOADED */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        console.log("First ResQ website loaded successfully.");
+
+    }
+);

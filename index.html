@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>First ResQ | Emergency Help</title>
 
-    <meta name="description"
-          content="First ResQ - Emergency access to hospitals, ambulance services and blood-bank resources.">
+    <meta
+        name="description"
+        content="First ResQ - Emergency access to hospitals, ambulance services and blood-bank resources."
+    >
 
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-    <!-- HEADER -->
+
+    <!-- =========================================
+         HEADER
+         ========================================= -->
+
     <header class="header">
+
         <div class="logo">
             🚨 <span>FIRST RESQ</span>
         </div>
@@ -23,11 +38,21 @@
         <p class="tagline">
             Emergency help, one place.
         </p>
+
     </header>
 
 
-    <!-- HERO -->
+
+    <!-- =========================================
+         MAIN
+         ========================================= -->
+
     <main>
+
+
+        <!-- =====================================
+             HERO
+             ===================================== -->
 
         <section class="hero">
 
@@ -37,17 +62,23 @@
                     ● MVP LIVE
                 </span>
 
+
                 <h1>
                     Emergency help.<br>
                     <span>One place.</span>
                 </h1>
 
+
                 <p>
-                    First ResQ is an early-stage emergency-access platform
-                    designed to help people find essential emergency resources.
+                    First ResQ is an early-stage emergency-access
+                    platform designed to help people find essential
+                    emergency resources quickly.
                 </p>
 
-                <!-- 108 BUTTON -->
+
+
+                <!-- 108 EMERGENCY BUTTON -->
+
                 <a
                     href="tel:108"
                     class="emergency-btn"
@@ -55,7 +86,10 @@
                     🚑 CALL 108
                 </a>
 
+
+
                 <!-- LOCATION BUTTON -->
+
                 <button
                     id="locationBtn"
                     class="location-btn"
@@ -64,33 +98,56 @@
                     📍 FIND NEARBY HELP
                 </button>
 
-                <p id="locationStatus" class="location-status"></p>
+
+                <p
+                    id="locationStatus"
+                    class="location-status"
+                ></p>
 
             </div>
 
         </section>
 
 
-        <!-- SERVICES -->
+
+        <!-- =====================================
+             SERVICES
+             ===================================== -->
+
         <section class="services">
 
-            <h2>Emergency Services</h2>
+            <h2>
+                Emergency Services
+            </h2>
+
 
             <p class="section-description">
                 Quick access to essential emergency resources.
             </p>
 
+
+
             <div class="cards">
 
-                <!-- HOSPITAL -->
-                <div class="card">
-                    <div class="card-icon">🏥</div>
 
-                    <h3>Hospitals</h3>
+                <!-- HOSPITAL -->
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🏥
+                    </div>
+
+
+                    <h3>
+                        Hospitals
+                    </h3>
+
 
                     <p>
                         Find nearby hospitals and emergency care.
                     </p>
+
 
                     <button
                         onclick="searchGoogleMaps('hospitals near me')"
@@ -98,18 +155,29 @@
                     >
                         Find Hospitals
                     </button>
+
                 </div>
 
 
-                <!-- AMBULANCE -->
-                <div class="card">
-                    <div class="card-icon">🚑</div>
 
-                    <h3>Ambulance</h3>
+                <!-- AMBULANCE -->
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🚑
+                    </div>
+
+
+                    <h3>
+                        Ambulance
+                    </h3>
+
 
                     <p>
                         Access emergency ambulance services quickly.
                     </p>
+
 
                     <a
                         href="tel:108"
@@ -117,18 +185,29 @@
                     >
                         Call 108
                     </a>
+
                 </div>
 
 
-                <!-- BLOOD BANK -->
-                <div class="card">
-                    <div class="card-icon">🩸</div>
 
-                    <h3>Blood Banks</h3>
+                <!-- BLOOD BANK -->
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🩸
+                    </div>
+
+
+                    <h3>
+                        Blood Banks
+                    </h3>
+
 
                     <p>
                         Find nearby blood banks and donation resources.
                     </p>
+
 
                     <button
                         onclick="searchGoogleMaps('blood banks near me')"
@@ -136,6 +215,7 @@
                     >
                         Find Blood Banks
                     </button>
+
                 </div>
 
             </div>
@@ -143,89 +223,279 @@
         </section>
 
 
-        <!-- LOCATION RESULT -->
+
+        <!-- =====================================
+             LOCATION RESULT / EMERGENCY RESULTS
+             ===================================== -->
+
         <section
             id="locationResult"
             class="location-result"
             style="display:none;"
         >
 
-            <h2>📍 Nearby Help</h2>
 
-            <p id="coordinates"></p>
+            <h2>
+                🚨 Emergency Help Near You
+            </h2>
 
-            <div class="location-actions">
 
-                <button
-                    onclick="openNearbyHospitals()"
-                    class="map-btn"
-                >
-                    🏥 Nearby Hospitals
-                </button>
+            <p id="coordinates">
+                Your location has been detected.
+            </p>
 
-                <button
-                    onclick="openNearbyBloodBanks()"
-                    class="map-btn"
-                >
-                    🩸 Nearby Blood Banks
-                </button>
 
-                <button
-                    onclick="openGoogleMaps()"
-                    class="map-btn"
-                >
-                    🗺️ Open Maps
-                </button>
+
+            <!-- =================================
+                 EMERGENCY RESULTS
+                 ================================= -->
+
+            <div class="emergency-results">
+
+
+
+                <!-- HOSPITAL RESULT -->
+
+                <div class="emergency-card">
+
+                    <div class="emergency-icon">
+                        🏥
+                    </div>
+
+
+                    <div class="emergency-card-content">
+
+                        <h3>
+                            Nearby Hospitals
+                        </h3>
+
+
+                        <p>
+                            Find hospitals and emergency care
+                            around your current location.
+                        </p>
+
+
+                        <div class="emergency-card-buttons">
+
+
+                            <button
+                                onclick="openNearbyHospitals()"
+                                class="primary-action"
+                            >
+                                🗺️ Find Hospitals
+                            </button>
+
+
+                            <a
+                                href="tel:108"
+                                class="secondary-action"
+                            >
+                                📞 Emergency
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- BLOOD BANK RESULT -->
+
+                <div class="emergency-card">
+
+                    <div class="emergency-icon">
+                        🩸
+                    </div>
+
+
+                    <div class="emergency-card-content">
+
+                        <h3>
+                            Nearby Blood Banks
+                        </h3>
+
+
+                        <p>
+                            Find blood banks and blood-donation
+                            resources near you.
+                        </p>
+
+
+                        <div class="emergency-card-buttons">
+
+
+                            <button
+                                onclick="openNearbyBloodBanks()"
+                                class="primary-action"
+                            >
+                                🗺️ Find Blood Banks
+                            </button>
+
+
+                            <button
+                                onclick="openGoogleMaps()"
+                                class="secondary-action"
+                            >
+                                📍 Open Maps
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- MAP RESULT -->
+
+                <div class="emergency-card map-card">
+
+                    <div class="emergency-icon">
+                        🗺️
+                    </div>
+
+
+                    <div class="emergency-card-content">
+
+                        <h3>
+                            Explore Emergency Resources
+                        </h3>
+
+
+                        <p>
+                            Open the map around your location
+                            and explore available emergency services.
+                        </p>
+
+
+                        <button
+                            onclick="openGoogleMaps()"
+                            class="primary-action full-action"
+                        >
+                            🗺️ Open Nearby Map
+                        </button>
+
+                    </div>
+
+                </div>
+
 
             </div>
+
+
+
+            <!-- =================================
+                 EMERGENCY NOTICE
+                 ================================= -->
+
+            <div class="emergency-notice">
+
+                <strong>
+                    🚨 Need immediate emergency assistance?
+                </strong>
+
+
+                <p>
+                    For emergencies in India, contact the appropriate
+                    official emergency service.
+                </p>
+
+
+                <a
+                    href="tel:108"
+                    class="emergency-call-small"
+                >
+                    📞 CALL 108
+                </a>
+
+            </div>
+
 
         </section>
 
 
-        <!-- WAITLIST -->
+
+        <!-- =====================================
+             WAITLIST
+             ===================================== -->
+
         <section class="waitlist">
 
-            <h2>Be Part of First ResQ</h2>
+
+            <h2>
+                Be Part of First ResQ
+            </h2>
+
 
             <p>
-                Join our early-access community and help shape the next version.
+                Join our early-access community and help shape
+                the next version.
             </p>
+
 
             <form
                 action="https://forms.gle/jy6m9aLJ6S4oJYCK8"
                 target="_blank"
             >
 
-                <button type="submit" class="join-btn">
+                <button
+                    type="submit"
+                    class="join-btn"
+                >
                     🚀 JOIN FIRST RESQ
                 </button>
 
             </form>
 
+
         </section>
+
 
     </main>
 
 
-    <!-- FOOTER -->
+
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
+
     <footer>
 
-        <strong>🚨 FIRST RESQ</strong>
+
+        <strong>
+            🚨 FIRST RESQ
+        </strong>
+
 
         <p>
             © 2026 First ResQ
         </p>
 
+
         <p class="disclaimer">
+
             First ResQ is currently an early-stage project.
             Emergency service availability and response times may vary.
             In an emergency, contact the appropriate official emergency service.
+
         </p>
+
 
     </footer>
 
 
+
+    <!-- =========================================
+         JAVASCRIPT
+         ========================================= -->
+
     <script src="script.js"></script>
 
+
 </body>
+
 </html>

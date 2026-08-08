@@ -1,21 +1,26 @@
-// FIRST RESQ - LOCATION & EMERGENCY FUNCTIONS
+// ========================================
+// FIRST RESQ - EMERGENCY FUNCTIONS
+// ========================================
 
 let userLatitude = null;
 let userLongitude = null;
 
 
-// ================================
+// ========================================
 // EMERGENCY ALERT
-// ================================
+// ========================================
 
 function sendAlert() {
-    alert("🚨 Emergency Alert Sent!\nPlease contact the appropriate official emergency service.");
+    alert(
+        "🚨 Emergency Alert Sent!\n\n" +
+        "Please contact the appropriate official emergency service."
+    );
 }
 
 
-// ================================
+// ========================================
 // FIND NEARBY HELP
-// ================================
+// ========================================
 
 function findNearbyHelp() {
 
@@ -32,52 +37,112 @@ function findNearbyHelp() {
         return;
     }
 
-    status.textContent = "📍 Getting your location...";
+    status.textContent =
+        "📍 Getting your location...";
 
     button.disabled = true;
-    button.textContent = "📍 LOCATING...";
+    button.textContent =
+        "📍 LOCATING...";
+
 
     navigator.geolocation.getCurrentPosition(
 
         function(position) {
 
-            userLatitude = position.coords.latitude;
-            userLongitude = position.coords.longitude;
+            userLatitude =
+                position.coords.latitude;
 
+            userLongitude =
+                position.coords.longitude;
+
+
+            // Show success
             status.textContent =
                 "✅ Location found!";
 
+
             coordinates.textContent =
-                `Your approximate location: ${userLatitude.toFixed(5)}, ${userLongitude.toFixed(5)}`;
+                "📍 Your location has been detected.";
 
-            result.style.display = "block";
 
-            button.disabled = false;
-            button.textContent = "📍 LOCATION FOUND";
+            result.style.display =
+                "block";
+
+
+            button.disabled =
+                false;
+
+            button.textContent =
+                "📍 LOCATION FOUND";
+
+
+            // Scroll automatically to results
+            setTimeout(function() {
+
+                result.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+            }, 300);
+
+
+            // Change the result heading
+            const resultHeading =
+                result.querySelector("h2");
+
+            if (resultHeading) {
+
+                resultHeading.textContent =
+                    "🚨 Emergency Help Near You";
+
+            }
+
+
+            // Update coordinate information
+            coordinates.innerHTML =
+                "Your location is ready. Choose an emergency resource below.";
+
+
+            // Highlight the result section
+            result.style.animation =
+                "resultAppear 0.6s ease";
+
 
         },
 
+
         function(error) {
 
-            button.disabled = false;
-            button.textContent = "📍 FIND NEARBY HELP";
+            button.disabled =
+                false;
+
+            button.textContent =
+                "📍 FIND NEARBY HELP";
+
 
             if (error.code === error.PERMISSION_DENIED) {
 
                 status.textContent =
                     "⚠️ Location permission was denied. Please allow location access and try again.";
 
-            } else if (error.code === error.POSITION_UNAVAILABLE) {
+            }
+
+            else if (error.code === error.POSITION_UNAVAILABLE) {
 
                 status.textContent =
                     "⚠️ Your location could not be determined.";
 
-            } else if (error.code === error.TIMEOUT) {
+            }
+
+            else if (error.code === error.TIMEOUT) {
 
                 status.textContent =
                     "⚠️ Location request timed out. Please try again.";
 
-            } else {
+            }
+
+            else {
 
                 status.textContent =
                     "⚠️ Unable to get your location.";
@@ -86,9 +151,10 @@ function findNearbyHelp() {
 
         },
 
+
         {
             enableHighAccuracy: true,
-            timeout: 10000,
+            timeout: 15000,
             maximumAge: 0
         }
 
@@ -96,9 +162,9 @@ function findNearbyHelp() {
 }
 
 
-// ================================
+// ========================================
 // GOOGLE MAPS SEARCH
-// ================================
+// ========================================
 
 function searchGoogleMaps(searchQuery) {
 
@@ -106,57 +172,93 @@ function searchGoogleMaps(searchQuery) {
         "https://www.google.com/maps/search/" +
         encodeURIComponent(searchQuery);
 
-    window.open(mapsURL, "_blank");
+    window.open(
+        mapsURL,
+        "_blank"
+    );
 }
 
 
-// ================================
+// ========================================
 // NEARBY HOSPITALS
-// ================================
+// ========================================
 
 function openNearbyHospitals() {
 
-    if (userLatitude === null || userLongitude === null) {
+    if (
+        userLatitude === null ||
+        userLongitude === null
+    ) {
 
-        alert("📍 Please find your location first.");
+        alert(
+            "📍 Please find your location first."
+        );
 
         return;
     }
 
-    const url =
-        `https://www.google.com/maps/search/hospitals/@${userLatitude},${userLongitude},14z`;
 
-    window.open(url, "_blank");
+    const url =
+        "https://www.google.com/maps/search/" +
+        "hospitals/@"
+        + userLatitude
+        + ","
+        + userLongitude
+        + ",14z";
+
+
+    window.open(
+        url,
+        "_blank"
+    );
 }
 
 
-// ================================
+// ========================================
 // NEARBY BLOOD BANKS
-// ================================
+// ========================================
 
 function openNearbyBloodBanks() {
 
-    if (userLatitude === null || userLongitude === null) {
+    if (
+        userLatitude === null ||
+        userLongitude === null
+    ) {
 
-        alert("📍 Please find your location first.");
+        alert(
+            "📍 Please find your location first."
+        );
 
         return;
     }
 
-    const url =
-        `https://www.google.com/maps/search/blood+banks/@${userLatitude},${userLongitude},14z`;
 
-    window.open(url, "_blank");
+    const url =
+        "https://www.google.com/maps/search/" +
+        "blood+banks/@"
+        + userLatitude
+        + ","
+        + userLongitude
+        + ",14z";
+
+
+    window.open(
+        url,
+        "_blank"
+    );
 }
 
 
-// ================================
+// ========================================
 // OPEN GOOGLE MAPS
-// ================================
+// ========================================
 
 function openGoogleMaps() {
 
-    if (userLatitude === null || userLongitude === null) {
+    if (
+        userLatitude === null ||
+        userLongitude === null
+    ) {
 
         window.open(
             "https://www.google.com/maps",
@@ -166,8 +268,17 @@ function openGoogleMaps() {
         return;
     }
 
-    const url =
-        `https://www.google.com/maps/@${userLatitude},${userLongitude},14z`;
 
-    window.open(url, "_blank");
+    const url =
+        "https://www.google.com/maps/@"
+        + userLatitude
+        + ","
+        + userLongitude
+        + ",14z";
+
+
+    window.open(
+        url,
+        "_blank"
+    );
 }

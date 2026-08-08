@@ -1,11 +1,11 @@
 /* =========================================
-   FIRST RESQ - COMPLETE RESPONSIVE CSS
-========================================= */
+   FIRST RESQ - MAIN STYLES
+   ========================================= */
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html {
@@ -13,683 +13,451 @@ html {
 }
 
 body {
-    width: 100%;
-    overflow-x: hidden;
     font-family: Arial, Helvetica, sans-serif;
-    color: #222;
-    background: #fff;
+    background: #ffffff;
+    color: #181818;
     line-height: 1.6;
 }
 
+
 /* =========================================
    HEADER
-========================================= */
+   ========================================= */
 
 .header {
     width: 100%;
-    min-height: 70px;
-    padding: 12px 6%;
+    padding: 18px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #fff;
-    border-bottom: 1px solid #eee;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.logo-area {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 22px;
-    font-weight: 700;
-    white-space: nowrap;
+    border-bottom: 1px solid #eeeeee;
+    background: #ffffff;
 }
 
 .logo {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-}
-
-nav {
+    font-size: 22px;
+    font-weight: 800;
+    color: #171717;
     display: flex;
     align-items: center;
-    gap: 25px;
-}
-
-nav a {
-    color: #222;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 600;
-}
-
-nav a:hover {
-    color: #e53935;
-}
-
-/* =========================================
-   HERO
-========================================= */
-
-.hero {
-    width: 100%;
-    min-height: 620px;
-    padding: 70px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-
-    background: linear-gradient(
-        180deg,
-        #ffffff 0%,
-        #f7f7f7 100%
-    );
-}
-
-.hero-content {
-    width: 100%;
-    max-width: 850px;
-    margin: auto;
+    gap: 8px;
 }
 
 .tagline {
     color: #e53935;
-    font-size: 15px;
     font-weight: 700;
-    margin-bottom: 15px;
 }
 
-.hero h1 {
-    font-size: clamp(38px, 6vw, 68px);
-    line-height: 1.08;
-    margin-bottom: 25px;
-}
 
-.hero-text {
-    max-width: 650px;
-    margin: 0 auto;
-    color: #666;
-    font-size: 19px;
-}
+/* =========================================
+   HERO
+   ========================================= */
 
-.hero-buttons {
-    margin-top: 35px;
-
+.hero {
+    min-height: 650px;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    gap: 15px;
-    flex-wrap: wrap;
+    text-align: center;
+    padding: 80px 20px;
+    background:
+        radial-gradient(
+            circle at center,
+            #ffffff 0%,
+            #fafafa 55%,
+            #f4f4f4 100%
+        );
 }
 
-.emergency-button,
-.join-button {
+.hero-content {
+    width: 100%;
+    max-width: 900px;
+}
+
+.status {
+    display: inline-block;
+    margin-bottom: 18px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #e53935;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 8vw, 92px);
+    line-height: 0.98;
+    letter-spacing: -4px;
+    margin-bottom: 30px;
+}
+
+.hero h1 span {
+    color: #e53935;
+}
+
+.hero p {
+    max-width: 750px;
+    margin: 0 auto 30px;
+    color: #666666;
+    font-size: 19px;
+}
+
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+.emergency-btn,
+.location-btn,
+.service-btn,
+.map-btn,
+.join-btn {
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: inherit;
+    font-weight: 700;
+    transition: 0.25s ease;
+}
+
+.emergency-btn {
     display: inline-flex;
-
-    min-height: 52px;
-    padding: 14px 24px;
-
     align-items: center;
     justify-content: center;
-
-    border-radius: 10px;
-
-    text-decoration: none !important;
-
-    font-size: 16px;
-    font-weight: 700;
-
-    transition: transform 0.2s ease,
-                opacity 0.2s ease;
+    min-height: 58px;
+    padding: 0 32px;
+    border-radius: 14px;
+    background: #e53935;
+    color: white;
+    font-size: 17px;
+    margin: 5px;
+    box-shadow: 0 10px 30px rgba(229, 57, 53, 0.20);
 }
 
-.emergency-button {
-    background: #e53935 !important;
-    color: #fff !important;
+.emergency-btn:hover {
+    transform: translateY(-3px);
+    background: #c62828;
 }
 
-.join-button {
-    background: #111 !important;
-    color: #fff !important;
+.location-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 58px;
+    padding: 0 30px;
+    border-radius: 14px;
+    background: #171717;
+    color: white;
+    font-size: 17px;
+    margin: 5px;
 }
 
-.emergency-button:hover,
-.join-button:hover {
-    transform: translateY(-2px);
-    opacity: 0.9;
+.location-btn:hover {
+    transform: translateY(-3px);
+    background: #333333;
 }
+
+.location-btn:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}
+
+.location-status {
+    min-height: 28px;
+    margin-top: 15px !important;
+    color: #e53935 !important;
+    font-size: 15px !important;
+}
+
 
 /* =========================================
    SERVICES
-========================================= */
+   ========================================= */
 
 .services {
-    width: 100%;
-    padding: 90px 6%;
-    background: #fff;
-}
-
-.section-heading {
-    max-width: 750px;
-    margin: 0 auto 50px;
+    padding: 90px 5%;
+    background: #f7f7f7;
     text-align: center;
 }
 
-.small-title {
-    margin-bottom: 8px;
-    color: #e53935;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2px;
+.services h2 {
+    font-size: 42px;
+    margin-bottom: 10px;
 }
 
-.section-heading h2 {
-    margin-bottom: 12px;
-    font-size: clamp(30px, 4vw, 48px);
-    line-height: 1.15;
+.section-description {
+    color: #777777;
+    margin-bottom: 45px;
 }
-
-.section-heading p:last-child {
-    color: #777;
-}
-
-/* CARDS */
 
 .cards {
-    width: 100%;
     max-width: 1100px;
     margin: auto;
-
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
 }
 
 .card {
+    background: white;
+    border-radius: 22px;
+    padding: 40px 28px;
     min-height: 300px;
-
-    padding: 35px 25px;
-
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
+    transition: 0.3s ease;
+}
 
-    text-align: center;
-
-    background: #f7f7f7;
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.06);
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.10);
 }
 
 .card-icon {
+    font-size: 45px;
+    margin-bottom: 18px;
+}
+
+.card h3 {
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #777777;
+    margin-bottom: 25px;
+}
+
+.service-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 22px;
+    border-radius: 10px;
+    background: #111111;
+    color: white;
+}
+
+.service-btn:hover {
+    background: #e53935;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   LOCATION RESULT
+   ========================================= */
+
+.location-result {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 45px 25px;
+    text-align: center;
+    background: #111111;
+    color: white;
+    border-radius: 24px;
+}
+
+.location-result h2 {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.location-result p {
+    color: #bbbbbb;
+    margin-bottom: 25px;
+}
+
+.location-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.map-btn {
+    padding: 14px 20px;
+    border-radius: 10px;
+    background: #e53935;
+    color: white;
+}
+
+.map-btn:hover {
+    transform: translateY(-2px);
+    background: #c62828;
+}
+
+
+/* =========================================
+   WAITLIST
+   ========================================= */
+
+.waitlist {
+    padding: 90px 20px;
+    text-align: center;
+    background: #111111;
+    color: white;
+}
+
+.waitlist h2 {
     font-size: 42px;
     margin-bottom: 12px;
 }
 
-.card h3 {
-    margin-bottom: 10px;
-    font-size: 24px;
-}
-
-.card p {
-    max-width: 280px;
-    margin-bottom: 22px;
-    color: #777;
-}
-
-.card button,
-.card-button {
-    display: inline-flex;
-
-    min-height: 45px;
-    padding: 11px 18px;
-
-    align-items: center;
-    justify-content: center;
-
-    border: none;
-    border-radius: 8px;
-
-    background: #111 !important;
-    color: #fff !important;
-
-    font-size: 14px;
-    font-weight: 700;
-
-    text-decoration: none !important;
-
-    cursor: pointer;
-}
-
-.card button:hover,
-.card-button:hover {
-    background: #e53935 !important;
-}
-
-/* =========================================
-   EMERGENCY ALERT
-========================================= */
-
-.alert-section {
-    width: 100%;
-    padding: 80px 6%;
-    background: #f5f5f5;
-}
-
-.alert-box {
-    max-width: 800px;
-    margin: auto;
-
-    padding: 45px 25px;
-
-    text-align: center;
-
-    background: #fff;
-    border-radius: 20px;
-}
-
-.alert-box h2 {
-    margin-bottom: 12px;
-    font-size: 32px;
-}
-
-.alert-box p {
-    margin-bottom: 25px;
-    color: #777;
-}
-
-.alert-button {
-    min-height: 50px;
-
-    padding: 13px 24px;
-
-    border: none;
-    border-radius: 10px;
-
-    background: #e53935 !important;
-    color: #fff !important;
-
-    font-size: 15px;
-    font-weight: 700;
-
-    cursor: pointer;
-}
-
-/* =========================================
-   JOIN SECTION
-========================================= */
-
-.join-section {
-    width: 100%;
-    padding: 90px 20px;
-
-    text-align: center;
-
-    background: #111;
-    color: #fff;
-}
-
-.join-content {
-    max-width: 700px;
-    margin: auto;
-}
-
-.join-content h2 {
-    margin-bottom: 12px;
-    font-size: clamp(32px, 5vw, 48px);
-    line-height: 1.15;
-}
-
-.join-content p {
+.waitlist p {
+    color: #bbbbbb;
     margin-bottom: 28px;
-    color: #ccc;
 }
 
-.form-button {
-    display: inline-flex;
-
-    min-height: 50px;
-
-    padding: 13px 28px;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 10px;
-
-    background: #e53935 !important;
-    color: #fff !important;
-
-    text-decoration: none !important;
-
-    font-weight: 700;
+.join-btn {
+    padding: 16px 30px;
+    border-radius: 12px;
+    background: #e53935;
+    color: white;
+    font-size: 16px;
 }
 
-.form-button:hover {
-    background: #c62828 !important;
+.join-btn:hover {
+    background: #ff5252;
+    transform: translateY(-2px);
 }
+
 
 /* =========================================
    FOOTER
-========================================= */
+   ========================================= */
 
 footer {
-    width: 100%;
-    padding: 40px 20px;
-
+    padding: 45px 20px;
     text-align: center;
-
-    background: #000;
-    color: #fff;
+    background: #050505;
+    color: white;
 }
 
-footer h3 {
-    margin-bottom: 18px;
+footer strong {
+    font-size: 20px;
+}
+
+footer p {
+    margin-top: 12px;
+    color: #aaaaaa;
 }
 
 .disclaimer {
     max-width: 850px;
-    margin: auto;
-
-    color: #888;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 13px;
-    line-height: 1.7;
 }
 
-/* =========================================
-   TABLET
-========================================= */
 
-@media (max-width: 900px) {
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 768px) {
 
     .header {
-        padding: 12px 25px;
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .tagline {
+        font-size: 14px;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 80px 20px;
+    }
+
+    .hero h1 {
+        font-size: clamp(46px, 14vw, 70px);
+        letter-spacing: -2px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .emergency-btn,
+    .location-btn {
+        width: 100%;
+        max-width: 340px;
+        margin: 6px auto;
+    }
+
+    .services {
+        padding: 65px 20px;
+    }
+
+    .services h2 {
+        font-size: 34px;
     }
 
     .cards {
         grid-template-columns: 1fr;
-        max-width: 600px;
-    }
-
-    .card {
-        min-height: 260px;
-    }
-}
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 600px) {
-
-    body {
-        width: 100%;
-        overflow-x: hidden;
-    }
-
-    /* HEADER */
-
-    .header {
-        min-height: 62px;
-
-        padding: 10px 16px;
-
-        gap: 10px;
-    }
-
-    .logo-area {
-        font-size: 18px;
-    }
-
-    .logo {
-        width: 34px;
-        height: 34px;
-    }
-
-    nav {
-        gap: 10px;
-    }
-
-    nav a {
-        font-size: 12px;
-    }
-
-
-    /* HERO */
-
-    .hero {
-        min-height: 570px;
-
-        padding: 55px 18px 65px;
-    }
-
-    .hero-content {
-        width: 100%;
-    }
-
-    .tagline {
-        font-size: 13px;
-        margin-bottom: 12px;
-    }
-
-    .hero h1 {
-        max-width: 380px;
-        margin: 0 auto 20px;
-
-        font-size: 37px;
-        line-height: 1.08;
-    }
-
-    .hero-text {
-        max-width: 360px;
-
-        font-size: 15px;
-        line-height: 1.6;
-    }
-
-
-    /* MOBILE BUTTONS */
-
-    .hero-buttons {
-        width: 100%;
-
-        margin-top: 30px;
-
-        display: flex;
-        flex-direction: column;
-
-        gap: 12px;
-    }
-
-    .emergency-button,
-    .join-button {
-        width: 100%;
-        min-height: 50px;
-
-        padding: 14px 18px;
-
-        font-size: 15px;
-    }
-
-
-    /* SERVICES */
-
-    .services {
-        padding: 65px 18px;
-    }
-
-    .section-heading {
-        margin-bottom: 35px;
-    }
-
-    .small-title {
-        font-size: 12px;
-    }
-
-    .section-heading h2 {
-        font-size: 30px;
-    }
-
-    .section-heading p:last-child {
-        font-size: 14px;
-    }
-
-
-    /* CARDS */
-
-    .cards {
-        width: 100%;
-
-        display: flex;
-        flex-direction: column;
-
         gap: 18px;
     }
 
     .card {
-        width: 100%;
-        min-height: 0;
-
-        padding: 30px 20px;
-
-        border-radius: 16px;
+        min-height: 250px;
     }
 
-    .card-icon {
-        font-size: 38px;
-        margin-bottom: 8px;
-    }
-
-    .card h3 {
-        font-size: 23px;
-    }
-
-    .card p {
-        max-width: 300px;
-
-        margin-bottom: 18px;
-
-        font-size: 14px;
-    }
-
-    .card button,
-    .card-button {
-        width: 100%;
-        max-width: 240px;
-
-        min-height: 46px;
-
-        font-size: 14px;
-    }
-
-
-    /* ALERT */
-
-    .alert-section {
-        padding: 55px 18px;
-    }
-
-    .alert-box {
+    .location-result {
+        margin: 35px 20px;
         padding: 35px 20px;
-        border-radius: 16px;
     }
 
-    .alert-box h2 {
-        font-size: 27px;
+    .location-actions {
+        flex-direction: column;
     }
 
-    .alert-box p {
-        font-size: 14px;
-    }
-
-    .alert-button {
+    .map-btn {
         width: 100%;
-        max-width: 280px;
     }
 
-
-    /* JOIN */
-
-    .join-section {
-        padding: 65px 20px;
+    .waitlist {
+        padding: 70px 20px;
     }
 
-    .join-content h2 {
-        font-size: 32px;
-    }
-
-    .join-content p {
-        font-size: 14px;
-    }
-
-    .form-button {
-        width: 100%;
-        max-width: 280px;
-    }
-
-
-    /* FOOTER */
-
-    footer {
-        padding: 35px 18px;
-    }
-
-    footer h3 {
-        font-size: 16px;
-    }
-
-    .disclaimer {
-        font-size: 12px;
+    .waitlist h2 {
+        font-size: 34px;
     }
 }
 
+
 /* =========================================
-   VERY SMALL PHONES
-========================================= */
+   SMALL PHONES
+   ========================================= */
 
-@media (max-width: 380px) {
-
-    .header {
-        padding: 9px 12px;
-    }
-
-    .logo-area {
-        font-size: 16px;
-    }
-
-    nav {
-        gap: 7px;
-    }
-
-    nav a {
-        font-size: 11px;
-    }
+@media (max-width: 420px) {
 
     .hero {
-        padding-left: 15px;
-        padding-right: 15px;
+        padding: 60px 16px;
     }
 
     .hero h1 {
-        font-size: 33px;
+        font-size: 45px;
     }
 
-    .hero-text {
-        font-size: 14px;
+    .hero p {
+        font-size: 15px;
     }
 
-    .section-heading h2 {
-        font-size: 27px;
+    .card {
+        padding: 30px 20px;
     }
 
+    .services h2,
+    .waitlist h2 {
+        font-size: 30px;
+    }
 }

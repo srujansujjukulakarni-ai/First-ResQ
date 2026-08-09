@@ -1,11 +1,12 @@
-/* =========================================
-   FIRST RESQ - MAIN STYLES
-   ========================================= */
+/* =====================================================
+   FIRST RESQ
+   MAIN MVP STYLESHEET
+   ===================================================== */
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -14,79 +15,89 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #ffffff;
-    color: #181818;
+    background: #f7f7f8;
+    color: #171717;
     line-height: 1.6;
 }
 
 
-/* =========================================
+/* =====================================================
    HEADER
-   ========================================= */
+   ===================================================== */
 
 .header {
     width: 100%;
-    padding: 18px 5%;
+    min-height: 78px;
+    padding: 18px 6%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #eeeeee;
+    justify-content: space-between;
+
     background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+
+    position: relative;
+    z-index: 10;
 }
 
 .logo {
-    font-size: 22px;
-    font-weight: 800;
-    color: #171717;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.logo:first-letter {
+    font-size: 25px;
 }
 
 .tagline {
     color: #e53935;
     font-weight: 700;
+    font-size: 16px;
 }
 
 
-/* =========================================
+/* =====================================================
    HERO
-   ========================================= */
+   ===================================================== */
 
 .hero {
-    min-height: 650px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 100px 20px 80px;
     text-align: center;
-    padding: 80px 20px;
+
     background:
         radial-gradient(
-            circle at center,
+            circle at top,
             #ffffff 0%,
-            #fafafa 55%,
-            #f4f4f4 100%
+            #f7f7f8 65%,
+            #f1f1f3 100%
         );
 }
 
 .hero-content {
-    width: 100%;
     max-width: 900px;
+    margin: auto;
 }
 
 .status {
     display: inline-block;
-    margin-bottom: 18px;
-    font-size: 15px;
-    font-weight: 700;
+
+    margin-bottom: 20px;
+
     color: #e53935;
+    font-weight: 700;
+    font-size: 16px;
 }
 
 .hero h1 {
-    font-size: clamp(48px, 8vw, 92px);
-    line-height: 0.98;
-    letter-spacing: -4px;
-    margin-bottom: 30px;
+    font-size: clamp(48px, 7vw, 90px);
+    line-height: 1.02;
+    letter-spacing: -3px;
+    margin-bottom: 28px;
 }
 
 .hero h1 span {
@@ -94,245 +105,494 @@ body {
 }
 
 .hero p {
-    max-width: 750px;
-    margin: 0 auto 30px;
-    color: #666666;
+    max-width: 760px;
+    margin: 0 auto 32px;
+
+    color: #555;
     font-size: 19px;
 }
 
 
-/* =========================================
-   BUTTONS
-   ========================================= */
+/* =====================================================
+   MAIN BUTTONS
+   ===================================================== */
 
 .emergency-btn,
-.location-btn,
-.service-btn,
-.map-btn,
-.join-btn {
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    font-family: inherit;
-    font-weight: 700;
-    transition: 0.25s ease;
-}
-
-.emergency-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 58px;
-    padding: 0 32px;
-    border-radius: 14px;
-    background: #e53935;
-    color: white;
-    font-size: 17px;
-    margin: 5px;
-    box-shadow: 0 10px 30px rgba(229, 57, 53, 0.20);
-}
-
-.emergency-btn:hover {
-    transform: translateY(-3px);
-    background: #c62828;
-}
-
 .location-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     min-height: 58px;
-    padding: 0 30px;
+    padding: 0 28px;
+    margin: 6px;
+
     border-radius: 14px;
-    background: #171717;
-    color: white;
+
     font-size: 17px;
-    margin: 5px;
+    font-weight: 700;
+
+    text-decoration: none;
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.emergency-btn {
+    color: white;
+    background: #e53935;
+
+    box-shadow:
+        0 10px 25px rgba(229, 57, 53, 0.25);
+}
+
+.location-btn {
+    color: white;
+    background: #171717;
+    border: none;
+}
+
+.emergency-btn:hover,
+.location-btn:hover {
+    transform: translateY(-2px);
+}
+
+.emergency-btn:hover {
+    box-shadow:
+        0 14px 30px rgba(229, 57, 53, 0.32);
 }
 
 .location-btn:hover {
-    transform: translateY(-3px);
-    background: #333333;
+    background: #2a2a2a;
 }
 
 .location-btn:disabled {
-    opacity: 0.65;
+    opacity: 0.7;
     cursor: wait;
 }
 
 .location-status {
     min-height: 28px;
-    margin-top: 15px !important;
-    color: #e53935 !important;
-    font-size: 15px !important;
+    margin-top: 12px;
+
+    color: #e53935;
+    font-weight: 600;
 }
 
 
-/* =========================================
+/* =====================================================
    SERVICES
-   ========================================= */
+   ===================================================== */
 
 .services {
-    padding: 90px 5%;
-    background: #f7f7f7;
+    padding: 90px 6%;
+
+    background: #ffffff;
+
     text-align: center;
 }
 
-.services h2 {
-    font-size: 42px;
+.services h2,
+.waitlist h2 {
+    font-size: clamp(30px, 5vw, 48px);
     margin-bottom: 10px;
 }
 
 .section-description {
-    color: #777777;
+    color: #666;
     margin-bottom: 45px;
+    font-size: 17px;
 }
 
 .cards {
     max-width: 1100px;
     margin: auto;
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    gap: 24px;
 }
 
 .card {
-    background: white;
-    border-radius: 22px;
-    padding: 40px 28px;
-    min-height: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
-    transition: 0.3s ease;
+    padding: 34px 26px;
+
+    background: #fafafa;
+
+    border: 1px solid #eeeeee;
+    border-radius: 20px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.10);
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.08);
 }
 
 .card-icon {
-    font-size: 45px;
-    margin-bottom: 18px;
+    font-size: 42px;
+    margin-bottom: 15px;
 }
 
 .card h3 {
-    font-size: 25px;
-    margin-bottom: 12px;
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
 .card p {
-    color: #777777;
-    margin-bottom: 25px;
+    color: #666;
+    margin-bottom: 22px;
 }
+
+
+/* =====================================================
+   SERVICE BUTTON
+   ===================================================== */
 
 .service-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 13px 22px;
+
+    min-height: 45px;
+    padding: 0 18px;
+
+    border: none;
     border-radius: 10px;
-    background: #111111;
+
+    background: #171717;
     color: white;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    text-decoration: none;
+    cursor: pointer;
+
+    transition: 0.2s ease;
 }
 
 .service-btn:hover {
     background: #e53935;
-    transform: translateY(-2px);
 }
 
 
-/* =========================================
+/* =====================================================
    LOCATION RESULT
-   ========================================= */
+   ===================================================== */
 
 .location-result {
-    max-width: 1000px;
-    margin: 60px auto;
-    padding: 45px 25px;
-    text-align: center;
-    background: #111111;
+    max-width: 1150px;
+    margin: 70px auto;
+
+    padding: 60px 35px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #171717,
+            #0f0f0f
+        );
+
     color: white;
-    border-radius: 24px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.18);
+
+    text-align: center;
 }
 
 .location-result h2 {
-    font-size: 34px;
+    font-size: clamp(32px, 5vw, 48px);
     margin-bottom: 10px;
 }
 
-.location-result p {
-    color: #bbbbbb;
-    margin-bottom: 25px;
+#coordinates {
+    color: #cfcfcf;
+    margin-bottom: 40px;
+    font-size: 17px;
 }
 
-.location-actions {
+
+/* =====================================================
+   EMERGENCY RESULT CARDS
+   ===================================================== */
+
+.emergency-results {
+    display: grid;
+    gap: 22px;
+
+    max-width: 1000px;
+    margin: auto;
+}
+
+.emergency-card {
     display: flex;
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 30px;
+
+    text-align: left;
+
+    background: #1d1d1d;
+
+    border: 1px solid #333;
+    border-left: 5px solid #e53935;
+
+    border-radius: 20px;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.emergency-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #e53935;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.emergency-card:nth-child(2) {
+    border-left-color: #ff2f81;
+}
+
+.emergency-card:nth-child(3) {
+    border-left-color: #287cff;
+}
+
+.emergency-icon {
+    min-width: 100px;
+    height: 100px;
+
+    display: flex;
+    align-items: center;
     justify-content: center;
+
+    border-radius: 18px;
+
+    background: #292929;
+
+    font-size: 52px;
+}
+
+.emergency-card-content {
+    flex: 1;
+}
+
+.emergency-card h3 {
+    font-size: 27px;
+    margin-bottom: 6px;
+}
+
+.emergency-card p {
+    color: #c8c8c8;
+    margin-bottom: 20px;
+
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   RESULT BUTTONS
+   ===================================================== */
+
+.emergency-card-buttons {
+    display: flex;
     flex-wrap: wrap;
     gap: 12px;
 }
 
-.map-btn {
-    padding: 14px 20px;
+.primary-action,
+.secondary-action {
+    min-height: 48px;
+
+    padding: 0 20px;
+
     border-radius: 10px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.2s ease;
+}
+
+.primary-action {
+    border: none;
+
     background: #e53935;
     color: white;
 }
 
-.map-btn:hover {
+.primary-action:hover {
+    background: #ff4b47;
+
     transform: translateY(-2px);
-    background: #c62828;
+}
+
+.secondary-action {
+    border: 1px solid #e53935;
+
+    background: transparent;
+    color: white;
+}
+
+.secondary-action:hover {
+    background: #e53935;
+}
+
+.emergency-card:nth-child(2) .primary-action {
+    background: #e91e63;
+}
+
+.emergency-card:nth-child(2) .secondary-action {
+    border-color: #e91e63;
+}
+
+.emergency-card:nth-child(3) .primary-action {
+    background: #287cff;
+}
+
+.full-action {
+    width: 100%;
 }
 
 
-/* =========================================
+/* =====================================================
+   EMERGENCY NOTICE
+   ===================================================== */
+
+.emergency-notice {
+    max-width: 1000px;
+    margin: 35px auto 0;
+
+    padding: 25px;
+
+    background: #242424;
+
+    border: 1px solid #444;
+    border-left: 5px solid #ffbf00;
+
+    border-radius: 16px;
+
+    text-align: center;
+}
+
+.emergency-notice strong {
+    display: block;
+
+    font-size: 20px;
+    margin-bottom: 6px;
+}
+
+.emergency-notice p {
+    color: #c9c9c9;
+    margin-bottom: 18px;
+}
+
+.emergency-call-small {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+    padding: 0 25px;
+
+    border-radius: 10px;
+
+    background: #e53935;
+    color: white;
+
+    font-weight: 800;
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.emergency-call-small:hover {
+    transform: scale(1.03);
+    background: #ff4b47;
+}
+
+
+/* =====================================================
    WAITLIST
-   ========================================= */
+   ===================================================== */
 
 .waitlist {
     padding: 90px 20px;
-    text-align: center;
-    background: #111111;
-    color: white;
-}
 
-.waitlist h2 {
-    font-size: 42px;
-    margin-bottom: 12px;
+    text-align: center;
+
+    background: #f7f7f8;
 }
 
 .waitlist p {
-    color: #bbbbbb;
-    margin-bottom: 28px;
+    max-width: 600px;
+    margin: 0 auto 25px;
+
+    color: #666;
 }
 
 .join-btn {
-    padding: 16px 30px;
+    min-height: 52px;
+
+    padding: 0 25px;
+
+    border: none;
     border-radius: 12px;
-    background: #e53935;
+
+    background: #171717;
     color: white;
+
     font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
 }
 
 .join-btn:hover {
-    background: #ff5252;
+    background: #e53935;
     transform: translateY(-2px);
 }
 
 
-/* =========================================
+/* =====================================================
    FOOTER
-   ========================================= */
+   ===================================================== */
 
 footer {
     padding: 45px 20px;
-    text-align: center;
-    background: #050505;
+
+    background: #111111;
     color: white;
+
+    text-align: center;
 }
 
 footer strong {
@@ -340,46 +600,44 @@ footer strong {
 }
 
 footer p {
-    margin-top: 12px;
-    color: #aaaaaa;
+    margin-top: 10px;
+    color: #aaa;
 }
 
 .disclaimer {
-    max-width: 850px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 700px;
+    margin: 15px auto 0;
+
     font-size: 13px;
+    line-height: 1.6;
 }
 
 
-/* =========================================
+/* =====================================================
    MOBILE
-   ========================================= */
+   ===================================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
 
     .header {
-        padding: 15px 20px;
-        flex-direction: column;
-        gap: 8px;
-        text-align: center;
-    }
+        padding: 16px 20px;
 
-    .logo {
-        font-size: 20px;
+        flex-direction: column;
+        gap: 7px;
+
+        text-align: center;
     }
 
     .tagline {
         font-size: 14px;
     }
 
+
     .hero {
-        min-height: auto;
-        padding: 80px 20px;
+        padding: 70px 20px 60px;
     }
 
     .hero h1 {
-        font-size: clamp(46px, 14vw, 70px);
         letter-spacing: -2px;
     }
 
@@ -387,77 +645,115 @@ footer p {
         font-size: 16px;
     }
 
+
     .emergency-btn,
     .location-btn {
         width: 100%;
-        max-width: 340px;
+        max-width: 360px;
         margin: 6px auto;
     }
+
 
     .services {
         padding: 65px 20px;
     }
 
-    .services h2 {
-        font-size: 34px;
-    }
-
     .cards {
         grid-template-columns: 1fr;
-        gap: 18px;
     }
 
-    .card {
-        min-height: 250px;
-    }
 
     .location-result {
-        margin: 35px 20px;
-        padding: 35px 20px;
+        margin: 45px 12px;
+
+        padding: 40px 16px;
+
+        border-radius: 22px;
     }
 
-    .location-actions {
-        flex-direction: column;
+
+    .location-result h2 {
+        font-size: 31px;
     }
 
-    .map-btn {
-        width: 100%;
-    }
-
-    .waitlist {
-        padding: 70px 20px;
-    }
-
-    .waitlist h2 {
-        font-size: 34px;
-    }
-}
-
-
-/* =========================================
-   SMALL PHONES
-   ========================================= */
-
-@media (max-width: 420px) {
-
-    .hero {
-        padding: 60px 16px;
-    }
-
-    .hero h1 {
-        font-size: 45px;
-    }
-
-    .hero p {
+    #coordinates {
         font-size: 15px;
     }
 
-    .card {
-        padding: 30px 20px;
+
+    .emergency-card {
+        flex-direction: column;
+
+        padding: 25px 18px;
+
+        text-align: center;
     }
 
-    .services h2,
-    .waitlist h2 {
-        font-size: 30px;
+
+    .emergency-icon {
+        min-width: 80px;
+        width: 80px;
+        height: 80px;
+
+        font-size: 40px;
     }
+
+
+    .emergency-card-content {
+        width: 100%;
+    }
+
+
+    .emergency-card h3 {
+        font-size: 23px;
+    }
+
+
+    .emergency-card p {
+        font-size: 15px;
+    }
+
+
+    .emergency-card-buttons {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+
+    .primary-action,
+    .secondary-action {
+        width: 100%;
+    }
+
+
+    .emergency-notice {
+        padding: 22px 16px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL PHONES
+   ===================================================== */
+
+@media (max-width: 420px) {
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .location-result {
+        padding: 32px 12px;
+    }
+
+    .emergency-card {
+        padding: 22px 14px;
+    }
+
 }

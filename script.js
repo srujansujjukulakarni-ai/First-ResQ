@@ -1,12 +1,12 @@
 // ========================================
-// FIRST RESQ — MVP V3
+// FIRST RESQ — MVP
 // REAL NEARBY EMERGENCY HELP
 // ========================================
 
 let userLatitude = null;
 let userLongitude = null;
 
-// Your secure Cloudflare Worker
+// Cloudflare Worker API
 const FIRST_RESQ_API =
     "https://first-resq-api.kulkarnisrujan7.workers.dev";
 
@@ -30,10 +30,7 @@ function findNearbyHelp() {
         document.getElementById("coordinates");
 
 
-    // ----------------------------------------
-    // CHECK REQUIRED HTML ELEMENTS
-    // ----------------------------------------
-
+    // Check required elements
     if (!status || !button || !result) {
 
         console.error(
@@ -44,10 +41,7 @@ function findNearbyHelp() {
     }
 
 
-    // ----------------------------------------
-    // CHECK GEOLOCATION
-    // ----------------------------------------
-
+    // Check browser GPS support
     if (!navigator.geolocation) {
 
         status.textContent =
@@ -57,10 +51,7 @@ function findNearbyHelp() {
     }
 
 
-    // ----------------------------------------
-    // RESET UI
-    // ----------------------------------------
-
+    // Reset interface
     status.textContent =
         "📍 Getting your location...";
 
@@ -70,16 +61,15 @@ function findNearbyHelp() {
         "📍 LOCATING...";
 
 
-    // ----------------------------------------
+    // ========================================
     // GET REAL DEVICE LOCATION
-    // ----------------------------------------
+    // ========================================
 
     navigator.geolocation.getCurrentPosition(
 
         async function(position) {
 
-            // Save REAL GPS coordinates
-
+            // Save real GPS coordinates
             userLatitude =
                 position.coords.latitude;
 
@@ -102,10 +92,7 @@ function findNearbyHelp() {
             );
 
 
-            // --------------------------------
-            // LOCATION FOUND
-            // --------------------------------
-
+            // Location found
             status.textContent =
                 "✅ Location found!";
 
@@ -124,9 +111,9 @@ function findNearbyHelp() {
             }
 
 
-            // --------------------------------
+            // ========================================
             // SHOW RESULT SECTION
-            // --------------------------------
+            // ========================================
 
             result.removeAttribute(
                 "hidden"
@@ -151,10 +138,7 @@ function findNearbyHelp() {
             );
 
 
-            // --------------------------------
-            // CHANGE HEADING
-            // --------------------------------
-
+            // Change heading
             const heading =
                 result.querySelector("h2");
 
@@ -167,9 +151,9 @@ function findNearbyHelp() {
             }
 
 
-            // --------------------------------
-            // SHOW LOADING MESSAGE
-            // --------------------------------
+            // ========================================
+            // LOADING MESSAGE
+            // ========================================
 
             if (coordinates) {
 
@@ -179,9 +163,9 @@ function findNearbyHelp() {
             }
 
 
-            // --------------------------------
+            // ========================================
             // SCROLL TO RESULTS
-            // --------------------------------
+            // ========================================
 
             setTimeout(function() {
 
@@ -204,18 +188,18 @@ function findNearbyHelp() {
             }, 400);
 
 
-            // --------------------------------
-            // LOAD REAL NEARBY DATA
-            // --------------------------------
+            // ========================================
+            // LOAD API RESULTS
+            // ========================================
 
             await loadNearbyEmergencyResources();
 
         },
 
 
-        // ====================================
+        // ========================================
         // LOCATION ERROR
-        // ====================================
+        // ========================================
 
         function(error) {
 
@@ -256,10 +240,7 @@ function findNearbyHelp() {
         },
 
 
-        // ====================================
-        // GPS OPTIONS
-        // ====================================
-
+        // GPS options
         {
 
             enableHighAccuracy:
@@ -278,15 +259,10 @@ function findNearbyHelp() {
 
 
 // ========================================
-// LOAD REAL EMERGENCY RESOURCES
+// LOAD NEARBY EMERGENCY RESOURCES
 // ========================================
 
 async function loadNearbyEmergencyResources() {
-
-    const result =
-        document.getElementById(
-            "locationResult"
-        );
 
     const coordinates =
         document.getElementById(
@@ -294,6 +270,7 @@ async function loadNearbyEmergencyResources() {
         );
 
 
+    // Make sure location exists
     if (
         userLatitude === null ||
         userLongitude === null
@@ -306,9 +283,9 @@ async function loadNearbyEmergencyResources() {
 
     try {
 
-        // --------------------------------
-        // BUILD SECURE API URL
-        // --------------------------------
+        // ========================================
+        // BUILD API REQUEST
+        // ========================================
 
         const apiUrl =
             FIRST_RESQ_API +
@@ -328,9 +305,9 @@ async function loadNearbyEmergencyResources() {
         );
 
 
-        // --------------------------------
-        // REQUEST REAL DATA
-        // --------------------------------
+        // ========================================
+        // CALL CLOUDFLARE WORKER
+        // ========================================
 
         const response =
             await fetch(apiUrl);
@@ -355,6 +332,10 @@ async function loadNearbyEmergencyResources() {
         );
 
 
+        // ========================================
+        // CHECK API RESPONSE
+        // ========================================
+
         if (!data.success) {
 
             throw new Error(
@@ -365,9 +346,9 @@ async function loadNearbyEmergencyResources() {
         }
 
 
-        // --------------------------------
-        // UPDATE LOCATION MESSAGE
-        // --------------------------------
+        // ========================================
+        // UPDATE STATUS
+        // ========================================
 
         if (coordinates) {
 
@@ -377,9 +358,9 @@ async function loadNearbyEmergencyResources() {
         }
 
 
-        // --------------------------------
+        // ========================================
         // DISPLAY RESULTS
-        // --------------------------------
+        // ========================================
 
         renderNearbyResources(
             data
@@ -429,10 +410,7 @@ function renderNearbyResources(
     }
 
 
-    // --------------------------------
-    // REMOVE OLD RESULTS
-    // --------------------------------
-
+    // Remove previous results
     const oldResults =
         result.querySelector(
             ".real-nearby-results"
@@ -446,9 +424,9 @@ function renderNearbyResources(
     }
 
 
-    // --------------------------------
+    // ========================================
     // CREATE RESULTS CONTAINER
-    // --------------------------------
+    // ========================================
 
     const container =
         document.createElement(
@@ -460,9 +438,37 @@ function renderNearbyResources(
         "real-nearby-results";
 
 
-    // =================================
-    // HOSPITAL SECTION
-    // =================================
+    // ========================================
+    // YOUR LOCATION
+    // ========================================
+
+    const yourLocation =
+        document.createElement(
+            "div"
+        );
+
+
+    yourLocation.className =
+        "your-location-card";
+
+
+    yourLocation.innerHTML =
+        `
+        <strong>📍 Your Current Location</strong>
+        <p>
+            Location detected successfully.
+        </p>
+        `;
+
+
+    container.appendChild(
+        yourLocation
+    );
+
+
+    // ========================================
+    // HOSPITALS
+    // ========================================
 
     const hospitalSection =
         createResourceSection(
@@ -481,9 +487,9 @@ function renderNearbyResources(
     );
 
 
-    // =================================
-    // BLOOD BANK SECTION
-    // =================================
+    // ========================================
+    // BLOOD BANKS
+    // ========================================
 
     const bloodSection =
         createResourceSection(
@@ -502,9 +508,9 @@ function renderNearbyResources(
     );
 
 
-    // --------------------------------
-    // INSERT INTO RESULT
-    // --------------------------------
+    // ========================================
+    // INSERT RESULTS
+    // ========================================
 
     result.appendChild(
         container
@@ -533,6 +539,7 @@ function createResourceSection(
         "nearby-resource-section";
 
 
+    // Section heading
     const heading =
         document.createElement(
             "h3"
@@ -548,9 +555,9 @@ function createResourceSection(
     );
 
 
-    // --------------------------------
+    // ========================================
     // NO RESULTS
-    // --------------------------------
+    // ========================================
 
     if (!places.length) {
 
@@ -574,12 +581,15 @@ function createResourceSection(
     }
 
 
-    // --------------------------------
+    // ========================================
     // SHOW TOP 3
-    // --------------------------------
+    // ========================================
 
     const visiblePlaces =
-        places.slice(0, 3);
+        places.slice(
+            0,
+            3
+        );
 
 
     visiblePlaces.forEach(
@@ -599,9 +609,9 @@ function createResourceSection(
     );
 
 
-    // --------------------------------
+    // ========================================
     // MORE RESULTS
-    // --------------------------------
+    // ========================================
 
     if (places.length > 3) {
 
@@ -651,9 +661,9 @@ function createPlaceCard(
         "nearby-place-card";
 
 
-    // --------------------------------
+    // ========================================
     // NAME
-    // --------------------------------
+    // ========================================
 
     const name =
         document.createElement(
@@ -671,9 +681,9 @@ function createPlaceCard(
     );
 
 
-    // --------------------------------
+    // ========================================
     // ADDRESS
-    // --------------------------------
+    // ========================================
 
     const address =
         document.createElement(
@@ -694,9 +704,9 @@ function createPlaceCard(
     );
 
 
-    // --------------------------------
+    // ========================================
     // DISTANCE
-    // --------------------------------
+    // ========================================
 
     const distance =
         document.createElement(
@@ -723,11 +733,16 @@ function createPlaceCard(
     );
 
 
-    // --------------------------------
-    // DIRECTIONS BUTTON
-    // --------------------------------
+    // ========================================
+    // DIRECTIONS FROM MY LOCATION
+    // ========================================
 
-    if (place.mapsUrl) {
+    if (
+        place.latitude !== undefined &&
+        place.longitude !== undefined &&
+        userLatitude !== null &&
+        userLongitude !== null
+    ) {
 
         const directions =
             document.createElement(
@@ -735,8 +750,24 @@ function createPlaceCard(
             );
 
 
+        // IMPORTANT:
+        // Origin = user's real GPS location
+        // Destination = selected emergency resource
+
         directions.href =
-            place.mapsUrl;
+            "https://www.google.com/maps/dir/?api=1" +
+            "&origin=" +
+            encodeURIComponent(
+                userLatitude +
+                "," +
+                userLongitude
+            ) +
+            "&destination=" +
+            encodeURIComponent(
+                place.latitude +
+                "," +
+                place.longitude
+            );
 
 
         directions.target =
@@ -752,7 +783,7 @@ function createPlaceCard(
 
 
         directions.textContent =
-            "🗺️ GET DIRECTIONS";
+            "🚗 DIRECTIONS FROM MY LOCATION";
 
 
         card.appendChild(
@@ -798,7 +829,7 @@ function formatDistance(
 
 
 // ========================================
-// NEARBY HOSPITALS
+// NEARBY HOSPITALS — GOOGLE MAPS
 // ========================================
 
 function openNearbyHospitals() {
@@ -834,7 +865,7 @@ function openNearbyHospitals() {
 
 
 // ========================================
-// NEARBY BLOOD BANKS
+// NEARBY BLOOD BANKS — GOOGLE MAPS
 // ========================================
 
 function openNearbyBloodBanks() {
@@ -870,7 +901,7 @@ function openNearbyBloodBanks() {
 
 
 // ========================================
-// GOOGLE MAPS
+// OPEN GOOGLE MAPS AT MY LOCATION
 // ========================================
 
 function openGoogleMaps() {
